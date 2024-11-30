@@ -1,0 +1,54 @@
+//フォントに関する変数を登録します
+
+$en: 'annabelle', sans-serif;
+$jpttl: 'ab-kirigirisu', sans-serif;
+$jptxt: 'yu-gothic-pr6n', sans-serif;
+
+@mixin jp {
+    font-family: $jptxt;
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+}
+
+@mixin jpmodal {
+    font-family: $jptxt;
+    font-size: 18px;
+    line-height: 2;
+}
+
+// 縦は48px、menulistは62px、soda種類は52px、 tmbは30px、modalは62px、アクセスlistは20px、enbgは130px,ls-0.25em
+@mixin jpttl ($fz: 62px) {
+    font-family: $jpttl;
+    font-size: $fz;
+}
+
+// enのttl,gnav,followのinsta/facebook fnav18px、 follow/contact ttl humbergerは28px
+@mixin en ($fz: 16px) {
+    font-family: $en;
+    font-size: $fz;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+}
+
+// bgfont
+@mixin enbg  {
+    font-family: $jpttl;
+    font-size: 130px;
+    color: rgba(231, 111, 74, 0.1);
+    letter-spacing: -0.25em;
+}
+
+@mixin enbgsoda ($fz: 150px) {
+    font-family: $jpttl;
+    font-size: $fz;
+    letter-spacing: -0.2em;
+}
+
+// menu 飾り
+@mixin endeco {
+    font-family: $en;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0;
+}

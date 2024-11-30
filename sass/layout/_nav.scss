@@ -1,0 +1,95 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+
+.gnav {
+    padding-right: 60px;
+    &__nav {
+        display: flex;
+        align-items: center;
+        column-gap: 25px;
+    }
+    &__link {
+        display: block;
+        padding: 10px;
+        @include en;
+        color: #fff;
+        text-decoration: none;
+        transition: .3s;
+        &:hover {
+            color: $hover;
+        }
+    }
+}
+
+
+.bnav {
+    // display: none;
+    transform: translateX(100%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 100vh;
+    background: url(../images/fbg.jpg);
+    text-align: center;
+    transition: .3s;
+    &__nav {
+        // margin-top: 75px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 40px;
+   }
+    &__link {
+        display: block;
+        padding: 15px 30px;
+        @include en(28px);
+        color: #000;
+        text-decoration: none;
+        transition: .3s;
+        &:hover {
+            color: $hover;
+        }
+    }
+    &__box {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        column-gap: 30px;
+    }
+    &__icon {
+        display: block;
+        padding: 10px;
+        transition: 0.3s;
+        &:hover {
+            opacity: 0.65;
+        }
+    }
+}
+
+.fnav {
+    &__nav {
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        row-gap: 25px;
+        column-gap: 60px;
+    }
+    &__link {
+        padding: 5px;
+        display: block;
+        @include en(18px);
+        color: #000;
+        text-decoration: none;
+        transition: .3s;
+        &:hover {
+            color: $hover;
+        }
+    }
+}

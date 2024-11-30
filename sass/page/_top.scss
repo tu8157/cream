@@ -1,0 +1,794 @@
+//各ファイルは必ず登録済みの変数を最初に読み込みます
+//as *で読み込みファイル名を省略することができます
+@use "../global" as *;
+
+#top {
+    .wrapper {
+        background: url(../images/bg.jpg);
+        color: #fff;
+
+        .mv {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url(../images/mv.jpg) right bottom / cover;
+
+            &__pic {
+                position: absolute;
+                top: 250px;
+                left: 960px;
+            }
+
+            //右下バー
+            &__box {
+                position: fixed;
+                right: 48px;
+                bottom: 30px;
+                z-index: 1;
+            }
+
+            &__sns {
+                margin-top: 35px;
+                width: 24px;
+                height: 24px;
+            }
+
+            &__link {
+                transition: .3s;
+
+                &:hover {
+                    opacity: 0.65;
+                }
+            }
+
+            &__txt {
+                margin: 50px auto 10px;
+                @include en(14px);
+                writing-mode: vertical-rl;
+            }
+
+            &__arrow {
+                position: relative;
+                height: 60px;
+            }
+
+            &__span {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                display: block;
+                width: 1px;
+                height: 30px;
+                background: #fff;
+                animation: pathMove 2.5s ease-in-out infinite;
+                opacity: 0;
+            }
+
+            @keyframes pathMove {
+                0% {
+                    height: 0;
+                    top: 0;
+                    opacity: 0;
+                }
+
+                30% {
+                    height: 30px;
+                    opacity: 1;
+                }
+
+                100% {
+                    height: 0;
+                    top: 50px;
+                    opacity: 0;
+                }
+            }
+        }
+
+        // conxept
+        .concept {
+            position: relative;
+
+            &__ttl {
+                margin: 70px auto 130px;
+                display: flex;
+                align-items: center;
+                column-gap: 25px;
+                writing-mode: vertical-rl;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    height: 40px;
+                    background: #fff;
+                }
+            }
+
+            &__catch {
+                margin: 0 auto;
+                writing-mode: vertical-rl;
+                @include jpttl(48px);
+                line-height: 1.5;
+                position: relative;
+
+                &::before {
+                    content: 'CONCEPT';
+                    position: absolute;
+                    top: -30%;
+                    left: 140%;
+                    writing-mode: horizontal-tb;
+                    @include enbg;
+                }
+            }
+
+            &__txt {
+                position: absolute;
+                top: 845px;
+                right: 450px;
+                width: 270px;
+                padding-top: 28px;
+                border-top: #fff solid 1px;
+                @include jp;
+            }
+
+            &__pic {
+                margin-top: -102px;
+                margin-left: 120px;
+                margin-bottom: 102px;
+                width: 430px;
+                height: 630px;
+                position: relative;
+                z-index: 1;
+            }
+
+            &__img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        // about
+        .about {
+            margin-bottom: 265px;
+            position: relative;
+
+            &__ttl {
+                padding: 360px 0 360px 620px;
+                background: url(../images/about1.jpg) center center / cover;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 700px;
+                    height: 200px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    transform: translateY(-100%);
+                    background: $redclear;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 40px;
+                    height: 1px;
+                    background: #fff;
+                    position: absolute;
+                    transform: translateX(-165%);
+                    top: 368px;
+                }
+            }
+
+            &__box {
+                margin: 140px 0 0 300px;
+                width: 310px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            &__catch {
+                margin-bottom: 70px;
+                writing-mode: vertical-rl;
+                @include jpttl(48px);
+                line-height: 1.5;
+            }
+
+            &__txt {
+                width: 310px;
+                padding-top: 28px;
+                border-top: #fff solid 1px;
+                @include jp;
+                position: relative;
+
+                &::after {
+                    content: 'ABOUT';
+                    display: block;
+                    @include enbg;
+                    position: absolute;
+                    top: 65%;
+                    left: 230%;
+                }
+            }
+
+            &__pic {
+                width: 600px;
+                height: 860px;
+                position: absolute;
+                top: 515px;
+                right: 120px;
+
+            }
+
+            &__img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        // menu
+        .menu {
+            background: rgba(109, 68, 45, 0.1);
+            position: relative;
+
+            &::before {
+                content: 'MENU';
+                position: absolute;
+                top: 200px;
+                left: 240px;
+                @include enbg;
+                color: $redclear;
+                writing-mode: horizontal-tb;
+            }
+
+            &__ttl {
+                margin: 0 auto;
+                padding-top: 70px;
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                position: relative;
+                @include en;
+                writing-mode: vertical-rl;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    height: 40px;
+                    background: #fff;
+                }
+            }
+
+            &__subttl {
+                margin: 70px auto;
+                writing-mode: vertical-rl;
+                @include jpttl(62px);
+                position: relative;
+
+            }
+
+            //   共通
+            &__name1,
+            &__name2,
+            &__name3 {
+                @include jpttl(52px);
+            }
+
+            &__txt1,
+            &__txt2,
+            &__txt3 {
+                width: 420px;
+                @include jp;
+            }
+
+            &__pic1,
+            &__pic2,
+            &__pic3 {
+                width: 280px;
+                height: 786px;
+            }
+
+            &__img1,
+            &__img2,
+            &__img3 {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            &__img1 {
+                transform: rotate(1.7deg);
+                filter: drop-shadow(0 4px 60px #00000045);
+            }
+
+            &__img2 {
+                transform: rotate(7deg);
+                filter: drop-shadow(25px 4px 40px #00000045);
+            }
+
+            &__img3 {
+                transform: rotate(-9deg);
+                filter: drop-shadow(-25px 4px 40px #00000045);
+            }
+
+            // メロン
+            &__container1 {
+                position: relative;
+            }
+
+            &__box1 {
+                margin: 0 230px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                z-index: 1;
+            }
+
+            &__name1 {
+                position: relative;
+                transform: translateY(-60px);
+
+                &::after {
+                    content: 'MELON';
+                    position: absolute;
+                    top: 100%;
+                    left: 10%;
+                    @include enbgsoda;
+                    color: #357868;
+                }
+            }
+
+            &__pic1 {
+                &::after {
+                    content: 'Melon Cream Soda';
+                    position: absolute;
+                    top: 30%;
+                    left: 62%;
+                    @include endeco;
+                    color: $gold;
+                    // transform: rotate(-15deg);
+                }
+            }
+
+            &__bg1 {
+                width: 1680px;
+                height: 450px;
+                background: url(../images/melon_bg.jpg) repeat;
+                position: absolute;
+                top: 168px;
+                left: 111px;
+            }
+
+            // イチゴ
+            &__wrapper2 {
+                position: relative;
+            }
+
+            &__container2 {
+                width: 1024px;
+                margin-left: auto;
+                margin-right: 350px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                z-index: 1;
+            }
+
+            &__box2 {
+                margin-top: 90px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateY(45px);
+            }
+
+            &__name2 {
+                position: relative;
+                margin-bottom: 48px;
+
+            }
+
+            &__pic2 {
+                &::before {
+                    content: 'Strawberry';
+                    position: absolute;
+                    bottom: 33%;
+                    right: -18%;
+                    @include endeco;
+                    color: #592000;
+                    transform: rotate(18deg);
+                }
+
+                &::after {
+                    content: 'Cream Soda';
+                    position: absolute;
+                    bottom: 25%;
+                    right: -22%;
+                    @include endeco;
+                    color: #592000;
+                    transform: rotate(18deg);
+                }
+            }
+
+            &__bg2 {
+                width: 1680px;
+                height: 450px;
+                background: url(../images/ichigo_bg.jpg) repeat;
+                position: absolute;
+                top: 210px;
+                right: 0;
+
+                &::before {
+                    content: 'ICHIGO';
+                    position: absolute;
+                    top: 5%;
+                    left: 5%;
+                    @include enbgsoda;
+                    color: #7A3434;
+                    // z-index: -1;
+                }
+            }
+
+            // ラムネ
+            &__wrapper3 {
+                margin-bottom: 100px;
+                position: relative;
+            }
+
+            &__container3 {
+                width: 1024px;
+                margin-left: 350px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                z-index: 1;
+            }
+
+            &__pic3 {
+                &::before {
+                    content: 'Ramune';
+                    position: absolute;
+                    bottom: 33%;
+                    left: -19%;
+                    @include endeco;
+                    color: $gold;
+                    transform: rotate(-25deg);
+                }
+
+                &::after {
+                    content: 'Cream Soda';
+                    position: absolute;
+                    bottom: 27%;
+                    left: -19%;
+                    @include endeco;
+                    color: $gold;
+                    transform: rotate(-25deg);
+                }
+            }
+
+            &__box3 {
+                margin-bottom: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateY(30px);
+            }
+
+            &__name3 {
+                margin-bottom: 48px;
+            }
+
+            &__bg3 {
+                width: 1680px;
+                height: 450px;
+                background: url(../images/ramune_bg.jpg) repeat;
+                position: absolute;
+                top: 210px;
+                left: 0;
+
+                &::after {
+                    content: 'RAMUNE';
+                    position: absolute;
+                    bottom: 0;
+                    left: 60%;
+                    @include enbgsoda;
+                    color: #33697A;
+                    // z-index: -1;
+                }
+            }
+        }
+
+        // スイーツサムネ
+        .sweet {
+            &__subttl {
+                margin: 0 auto 120px;
+                writing-mode: vertical-rl;
+                @include jpttl
+            }
+
+            &__box {
+                padding-bottom: 260px;
+                display: flex;
+                justify-content: center;
+                gap: 120px;
+            }
+
+            &__pic {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 50px;
+                cursor: pointer;
+
+                &:hover img {
+                    transform: scale(1.2);
+                }
+            }
+
+            &__photo {
+                width: 248px;
+                height: 248px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+
+            &__img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: .5s;
+            }
+
+            &__txt {
+                @include jpttl(32px);
+                text-align: center;
+            }
+        }
+
+        // モーダル部分
+        .modal {
+
+            &__container1,
+            &__container2,
+            &__container3,
+            &__container4 {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.96);
+                color: #fff;
+                z-index: 2;
+            }
+
+            &__wrap {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                column-gap: 150px;
+            }
+
+            &__pic {
+                width: 500px;
+                height: 500px;
+            }
+
+            &__img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &__sub {
+                width: 600px;
+                margin-bottom: 55px;
+                @include jpttl;
+                text-align: center;
+            }
+
+            &__txt {
+                width: 600px;
+                @include jp;
+                text-align: center;
+            }
+        }
+
+        // accessセクション
+        .access {
+            padding-top: 220px;
+            display: flex;
+            justify-content: space-between;
+
+            &__box1 {
+                width: 700px;
+                height: 575px;
+                padding: 100px 0 0 215px;
+                background: rgba(116, 0, 0, 0.2);
+            }
+
+            &__ttl {
+                margin-bottom: 60px;
+                display: flex;
+                align-items: center;
+                gap: 25px;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 40px;
+                    height: 1px;
+                    background: #fff;
+                }
+            }
+
+            &__dt {
+                margin-bottom: 5px;
+                @include jpttl(20px);
+            }
+
+            &__dd {
+                margin-bottom: 25px;
+                @include jp;
+            }
+
+            &__link {
+                color: #fff;
+                transition: .2s;
+
+                &:hover {
+                    color: $hover;
+                }
+            }
+
+            &__box2 {
+                transform: translateY(-60px);
+
+                &::before {
+                    content: 'ACCESS';
+                    display: block;
+                    // margin-bottom: 70px;
+                    margin-left: 80px;
+                    @include enbg;
+                }
+            }
+        }
+
+        // インフォメーション
+        .info__box {
+            width: 1160px;
+            margin-left: 390px;
+            margin-bottom: 120px;
+            transform: translateY(-60px);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        // followセクション
+        .follow {
+            width: 245px;
+
+            &__ttl {
+                margin-bottom: 15px;
+                text-align: center;
+                @include en(28px);
+            }
+
+            &__txt {
+                margin-bottom: 38px;
+                text-align: center;
+                @include jp;
+            }
+
+            &__container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            &__link {
+                display: block;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 20px;
+                text-decoration: none;
+                transition: .3s;
+
+                &:hover {
+                    opacity: 0.65;
+                }
+            }
+
+            &__path {
+                fill: #fff;
+            }
+
+            &__name {
+                @include en;
+                color: #fff;
+            }
+
+            &__line {
+                width: 1px;
+                height: 80px;
+                background: #fff;
+            }
+        }
+
+        // contactセクション
+        .contact {
+            &__link {
+                display: block;
+                color: #fff;
+                text-decoration: none;
+                transition: .2s;
+
+                &:hover {
+                    color: $hover;
+                }
+            }
+
+            &__ttl {
+                margin-bottom: 15px;
+                text-align: center;
+                @include en(28px);
+                text-decoration-line: underline;
+            }
+
+            &__txt {
+                @include jp;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+}
